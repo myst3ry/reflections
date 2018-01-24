@@ -1,0 +1,41 @@
+How did viewing a diff between two versions of a file help you see the bug that
+was introduced?
+
+    进入要比较的文件所在的目录
+    diff old.txt new.txt(--标识前一个文件，++标识后一个文件)
+
+How could having easy access to the entire history of a file make you a more
+efficient programmer in the long term?
+
+    可比较，可回滚
+
+What do you think are the pros and cons of manually choosing when to create a
+commit, like you do in Git, vs having versions automatically saved, like Google
+docs does?
+
+    手动提交应该提交一次逻辑的修改，这样可以明确每次提交的具体意义；自动提交很省心，但可能出现很多没有意义的提交或者包含大量内容的难以理解的提交
+
+Why do you think some version control systems, like Git, allow saving multiple
+files in one commit, while others, like Google Docs, treat each file separately?
+
+    项目中的文件是相关联的，所以一次提交应该保存所有文件
+
+How can you use the commands git log and git diff to view the history of files?
+
+    cd 某库名//进入库 
+    git log//显示commit，按下箭头加载更多commit
+    q//退出显示模式，回到命令模式
+    git diff 旧commit 新commit//比较两个commit的区别，绿色表示新增，红色表示删除
+
+
+How might using version control make you more confident to make changes that
+could break something?
+
+    可以随时转到任意commit，查看bug等
+
+    git checkout 某commit//将项目跳到该commit
+    注意跳转后，该commit在显示中成为了最新的commit，曾经比这个commit新的commit都不显示了，因此应该记住那个最新的commit以便随时回到最新状态
+
+Now that you have your workspace set up, what do you want to try using Git for?
+
+    Fill in your answer here
