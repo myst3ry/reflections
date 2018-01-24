@@ -7,6 +7,17 @@ What value do you think it offers?
 
 How can you use the staging area to make sure you have one commit per logical
 change?
+	1.假设工作空间中的两个文件file1和file2做出了某些改动
+	2.git status//在Changes not staged for commit条目下查看工作空间的哪些文档有改动（改动还未加入暂存区），可以看到file1和file2
+	3.git diff//比较工作空间和暂存区（此时暂存区中是最新的commit版本）的区别，也就是找出刚才在工作空间发生了哪些改动，可以看到file1和file2的具体改动
+	4.git add file1//将发生了改动的、想要commit的文件添加到暂存区，假设只想add file1
+	**5.git diff//在这里，只看到file2,没有file1（因为此时工作空间和暂存区的file1已经一致了）
+	6.git diff --staged//比较暂存区和版本库的区别，以确认即将提交的内容是自己想提交的，在这里只可以看到file1的区别
+	7.git commit//调用sublime填写commit注释信息，提交暂存区中内容到版本库，此时版本库出现了新的commit版本，其中只有file1有改动
+	**8.git diff --staged//在这里，看不到任何信息
+	**9.git diff//在这里，只看到file2
+	10. git reset --hard//放弃工作目录或暂存区中的所有更改，也就是未commit的所有更改都被强制还原
+
 
 What are some situations when branches would be helpful in keeping your history
 organized? How would branches help?
