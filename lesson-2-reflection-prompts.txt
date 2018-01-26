@@ -30,11 +30,17 @@ How do the diagrams help you visualize the branch structure?
 		此时修改某些东西并commit//此时head指向新commit(此时产生了一个“野分支”，就是形式上是分支，但因为没有进行git branch命令，所以没有分支名)
 		此时一旦checkout到其他分支，则无法再返回到“野分支”（除非记住commit id），也就相当于放弃最一开始的checkout之后的所有工作
 		如果想保存“野分支”，应当在这里进行git branch -b 新分支名，相当于创建分支（git branch 新分支名）并跳转到该分支（git checkout 分支名）
+	3.git log --graph --oneline//显示commit的同时用图形标记出分支和合并的历史轨迹，每个commit信息只占一行来输出（便于查看）
 
 
 
 What is the result of merging two branches together? Why do we represent it in
 the diagram the way we do?
+		1.checkout 合并的目标分支//git merge 分支名 总是将选定分支合并进当前checkout的分支，所以我们要先checkout 目标分支
+		2.git merge 被合并的分支
+		**3.git log//分支合并后，commit按照时间戳排序，这意味着某commit的上一个commit不一定是他的父commit
+		4.git show 某commit//使用此命令来对比某commit和他的父commit，而不是使用git diff 某commit 上一个commit
+		5.git branch -d 被合并的分支//分支已经被并入目标分支，现在删除旧分支的标签（仅仅是标签，commit不会被影响）
 
 What are the pros and cons of Git's automatic merging vs. always doing merges
 manually?
