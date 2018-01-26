@@ -24,6 +24,14 @@ organized? How would branches help?
 	当需要进行实验性的改动，并保留这些改动成为一个完整的版本，但这个版本应当脱离主线时，使用分支
 
 How do the diagrams help you visualize the branch structure?
+	了解git log的特性：非线性（log只显示选中的分支的commit，默认显示当前head所指分支），可达性（所有commit都有指针指向父commit，直到init commit）
+	1.git checkout 分支名//将该分支最新commit载入暂存区，head指向该分支名（分支名此时指向的正是该分支最新commit）
+	2.git checkout 某commit//将该commit载入暂存区，head指向该commit
+		此时修改某些东西并commit//此时head指向新commit(此时产生了一个“野分支”，就是形式上是分支，但因为没有进行git branch命令，所以没有分支名)
+		此时一旦checkout到其他分支，则无法再返回到“野分支”（除非记住commit id），也就相当于放弃最一开始的checkout之后的所有工作
+		如果想保存“野分支”，应当在这里进行git branch -b 新分支名，相当于创建分支（git branch 新分支名）并跳转到该分支（git checkout 分支名）
+
+
 
 What is the result of merging two branches together? Why do we represent it in
 the diagram the way we do?
