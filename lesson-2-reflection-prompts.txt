@@ -44,3 +44,11 @@ the diagram the way we do?
 
 What are the pros and cons of Git's automatic merging vs. always doing merges
 manually?
+	自动合并基于“将两个分支的commit与他们的共同父commit进行比较，以确认哪些改动应当在合并时保留”的逻辑，使得一些合并变得省心
+	但自动合并并不能解决所有问题，例如公共父commit有代码块B,而两个分支对代码块B进行了不同的改动B1,B2,则自动合并无法判断该保留哪一个，产生了合并冲突
+	此时必须手动解决冲突
+		1.subl 冲突文件//打开冲突文件
+		2.ctrl+f//搜索<<<<<<<<<,可以快速定位到冲突发生处，此处标明了三个版本的代码（两个分支commit，一个公共父commit）
+		3.手动解决冲突，删除文件中的特殊标记，调整代码空白、换行等
+		**4.git status//可以看到both modified: 冲突文件，说明在两个分支的文件都被更改了
+		5.git add 冲突文件,git commit 冲突文件//将解决了冲突的文件提交，此时也就完成了合并（commit信息：merge 某分支 into 某分支）
