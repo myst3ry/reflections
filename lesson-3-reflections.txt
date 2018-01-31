@@ -1,2 +1,7 @@
 when would you want to create a remote repository rather than keeping all your work local?
-  公开分享项目或者进行团队协作
+  目的：公开分享项目或者进行团队协作
+  操作：
+  1.在想要创建远程库的工作目录下运行git bash
+  2.git remote add origin url//为此项目创建一个名为origin的远程库，并与GitHub中的库连接（URL方式）
+  3.git remote -v//显示当前项目的远程库的详细信息
+  4.git push origin master//将当前项目的本地分支master推送到origin远程库中，分支名不变
