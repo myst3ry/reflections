@@ -4,7 +4,11 @@ when would you want to create a remote repository rather than keeping all your w
   1.在想要创建远程库的工作目录下运行git bash
   2.git remote add origin url//为此项目创建一个名为origin的远程库，并与GitHub中的库连接（URL方式）
   3.git remote -v//显示当前项目的远程库的详细信息
-  4.git push origin master//将当前项目的本地分支master推送到origin远程库中，分支名不变
-  
+  4.git push <远程库> <本地分支> <远程分支>//将当前项目<本地分支>推送到<远程库>，省略<远程分支>则推送到追踪的远程分支（通常同名，没有则创建同名分支）
+
 Why might you want to always pull changes manually rather than having Git automatically stay up-to-date with your remote repository?
    远程库中的版本未必是自己想要的，手动拉取可以确保本地项目的版本是自己想要保持的版本
+   操作：
+   1.在想要拉取新版本的工作目录下运行git bash
+   2.git pull <远程库><远程分支><本地分支>//将<远程库>中的<远程分支>拉取到本地项目的<本地分支>，省略<本地分支>则推送到当前检出分支
+   **3.git log//可以确认本地分支的commit
