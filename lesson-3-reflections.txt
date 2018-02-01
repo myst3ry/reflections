@@ -12,3 +12,7 @@ Why might you want to always pull changes manually rather than having Git automa
    1.在想要拉取新版本的工作目录下运行git bash
    2.git pull <远程库><远程分支><本地分支>//将<远程库>中的<远程分支>拉取到本地项目的<本地分支>，省略<本地分支>则推送到当前检出分支
    **3.git log//可以确认本地分支的commit
+Describe the differences between forks, clones, and branches.  When would you use one instead of another?
+   fork:局限于GitHub的概念，将他人账户中的项目复制一份到自己的账户下。当需要公开对该项目进行改动时，为了获取改动权限，使用fork
+   clone:将GitHub的项目或本地的项目(不常用)复制一份到本地。当需要在本地对某GitHub项目进行改动时，使用clone
+   branch：局限于一个项目的概念，项目的commit不再是线性排列，而是出现了分支。当需要对项目进行某些实验性的改动，而不希望影响现有版本的时候，使用branch
