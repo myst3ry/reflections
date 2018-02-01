@@ -5,3 +5,6 @@ when would you want to create a remote repository rather than keeping all your w
   2.git remote add origin url//为此项目创建一个名为origin的远程库，并与GitHub中的库连接（URL方式）
   3.git remote -v//显示当前项目的远程库的详细信息
   4.git push origin master//将当前项目的本地分支master推送到origin远程库中，分支名不变
+  
+Why might you want to always pull changes manually rather than having Git automatically stay up-to-date with your remote repository?
+   远程库中的版本未必是自己想要的，手动拉取可以确保本地项目的版本是自己想要保持的版本
