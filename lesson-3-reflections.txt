@@ -12,7 +12,40 @@ Why might you want to always pull changes manually rather than having Git automa
    1.在想要拉取新版本的工作目录下运行git bash
    2.git pull <远程库><远程分支><本地分支>//将<远程库>中的<远程分支>拉取到本地项目的<本地分支>，省略<本地分支>则推送到当前检出分支
    **3.git log//可以确认本地分支的commit
+
 Describe the differences between forks, clones, and branches.  When would you use one instead of another?
    fork:局限于GitHub的概念，将他人账户中的项目复制一份到自己的账户下。当需要公开对该项目进行改动时，为了获取改动权限，使用fork
    clone:将GitHub的项目或本地的项目(不常用)复制一份到本地。当需要在本地对某GitHub项目进行改动时，使用clone
    branch：局限于一个项目的概念，项目的commit不再是线性排列，而是出现了分支。当需要对项目进行某些实验性的改动，而不希望影响现有版本的时候，使用branch
+
+What is the benefit of having a copy of the last known state of the remote stored locally?
+
+	1.当我们脱机，并在本地commit时，可以知道自己前进了多少（相较于上一次和远程库通信时的状态）
+	2.我们可以fetch后进入脱机状态，再进行merge，最终完成pull
+
+	
+	当我们进行git clone URL（GitHub上已存在的项目）时，发生以下变动：
+		本地库：获得了完整项目，并将项目的来源远程库设为关联的origin远程库
+
+	当我们第一次进行 git push origin master 时，其实本地库和远程库都有变动：
+		远程库：从本地库获取了master分支
+		本地库：建立一个origin/master分支，指向本地master的head，这个分支的含义是：已知的远程库的状态
+
+	当我们在本地进行commit，但没有push时，使用git status 可以看到your branch is ahead of 'origin/master'by * commit
+	即：本地分支master已经领先于origin/master(已知的远程库状态)，领先了*个commit
+
+	当我们push后，origin/master就会更新（因为本地库与远程库进行了通信，可以获取到最新的远程库状态），指向本地master的head
+
+	当我们在远程库进行commit，但没有pull时，使用git status 只能看到 your branch is up-to-date with 'origin/master'
+	即：本地分支master与远程库保持一致（这与事实不符，但因为没有获取origin/master的新状态，所以这是合理的）
+
+	当我们pull后，origin/master就会更新（因为本地库与远程库进行了通信，可以获取到最新的远程库状态），指向本地master的head
+
+	其实，pull相当于fetch + merge
+
+	使用fetch,就是更新origin/master分支，将远程库的新commit加入到origin/master分支中
+	使用merge,就是合并origin/master分支到master分支中
+		如果origin/master分支可以追溯到master分支的head，则会自动进行fast-forward merged(快进合并)，也就是直接将master指向origin/master的head
+		否则，则会进行正常合并，包括处理冲突等，最终，origin/master指向了master的head
+		无论如何，此时origin/master分支和master分支都指向了同一处
+
