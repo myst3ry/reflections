@@ -49,3 +49,11 @@ What is the benefit of having a copy of the last known state of the remote store
 		否则，则会进行正常合并，包括处理冲突等，最终，origin/master指向了master的head
 		无论如何，此时origin/master分支和master分支都指向了同一处
 
+how would you collaborate without using Git or GitHub?  What would be easier,and what would be harder?
+	真正的协作中，两个甚至多个参与者必然有可能对同一文件进行各自的改动，这很有可能引发冲突。即使是对不同文件的改动，互相之间如何确认对方的改动没有问题、是公共版本想要的改动？git&GitHub很好地解决了这个问题
+
+	1.在自己的远程库中产生了某些改动（在新分支上进行的），并想要将这些改动贡献给原始库时，
+	  点击new pull request按钮进行“拉取请求”（请求对方拉取我的改动到他的版本中）
+	2.对方收到我的请求，查看了我的改动，并找出存在的问题，给出评论
+	3.我收到了对方的回复，解决他提出的问题，并commit changes
+	4.对方看到了我解决问题的commit
