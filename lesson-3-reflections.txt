@@ -56,4 +56,4 @@ how would you collaborate without using Git or GitHub?  What would be easier,and
 	  点击new pull request按钮进行“拉取请求”（请求对方拉取我的改动到他的版本中）
 	2.对方收到我的请求，查看了我的改动，并找出存在的问题，给出评论
 	3.我收到了对方的回复，解决他提出的问题，并commit changes
-	4.对方看到了我解决问题的commit
+	4.对方看到了我解决问题的commit，并决定将我的更改merge到他的版本中
